@@ -1,0 +1,268 @@
+@import "../../../styles/config";
+
+// ------- MENU RELATED STYLES
+.menu-container {
+  height: 100vh;
+  // width: 100vw;
+  width: 0vw;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  // visibility: hidden;
+  // overflow: hidden;
+  transition: width 0.5s;
+}
+
+.fadeout {
+  // display: inline-block;
+  // width: calc(100vw - 340px);
+  overflow-x: hidden;
+  // width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  // position: fixed;
+  top: 0;
+  left: 0;
+  // left: calc(100vw - 340px);
+  // background-color: rgba(56, 53, 53, 0.1);
+  background-color: transparent;
+}
+
+.shadow-on {
+  box-shadow: 0 4px 4px 0 rgba(60, 64, 67, 0.3),
+    0 8px 12px 6px rgba(60, 64, 67, 0.15);
+}
+.shadow-off {
+  box-shadow: none;
+}
+.menu {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: absolute;
+  z-index: 2;
+  // position: fixed;
+  top: 0;
+  left: 0;
+  // width: 80vw;
+  width: 80vw;
+  height: 100vh;
+  // padding: 60px 0 0 0;
+  margin: 0 0 0 0;
+  z-index: 2;
+  display: block;
+  // vertical-align: middle;
+  // max-width: 335px;
+
+  transition: width 0.5s;
+  // credits to Google Classroom for this
+
+  padding-top: 30px;
+  background-color: #fffefe;
+
+  .logo {
+    display: none;
+  }
+
+  .yellow-highlight {
+    z-index: 3;
+    position: absolute;
+    background-color: $primary-yellow;
+    top: 0px;
+    width: 100%;
+    height: 22px;
+  }
+
+  .school-name-heading {
+    position: absolute;
+    height: 3.5%;
+    // text-overflow: hidden;
+    overflow: hidden;
+    top: 6.7%;
+    display: block;
+    color: #000;
+    font-weight: bolder;
+    font-size: 1.15rem;
+    // width: 100%;
+    width: 80vw;
+    text-align: center;
+  }
+  .divider {
+    color: #bdb9b9;
+    position: absolute;
+    width: 100%;
+    top: 12.3%;
+  }
+}
+
+.nav-items-container {
+  position: absolute;
+  top: 17%;
+  width: 100%;
+
+  .nav-icon {
+    height: 36px;
+    width: 36px;
+    fill: $menu-grey;
+  }
+
+  #nios-logo {
+    height: 36px;
+    width: auto;
+    margin-left: 4px;
+    margin-right: 6px;
+  }
+
+  .dropdown-arrow {
+    transition: 0.15s;
+  }
+  .dropdown-arrow-open {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    transform: rotate(90deg);
+  }
+  .dropdown-open {
+    height: auto;
+  }
+  .nav-item {
+    // display: block;
+    font-size: 1.3em;
+    max-width: 287px;
+    width: 287px;
+    // height: 50px;
+    // padding-top: 7px;
+    // padding-bottom: 7px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.not-dropdown .nav-icon {
+      margin-left: 36px;
+    }
+
+    // max-height: 38px;
+    // height: 38px;
+    // line-height: 38px;
+    // text-align: ;
+    // vertical-align: middle;
+    // position: relative;
+  }
+
+  // .nav-dropdown{
+  // }
+
+  .nav-heading {
+    // position: absolute;
+    // height: 100%;
+    max-height: 38px;
+    height: 38px;
+    vertical-align: text-bottom;
+    text-decoration: none;
+    // margin-top: auto;
+    text-overflow: ellipsis;
+    // font-size: 18px;
+    padding: 0 0 0 3%;
+    margin: 0 0 0 0;
+    line-height: 36px;
+    display: inline-block;
+
+    &:visited {
+      text-decoration: none;
+      color: $menu-grey;
+    }
+  }
+
+  .dropdown-content {
+    // margin-left: ;
+    margin: 2% 0 5% 20%;
+    display: none;
+    // .dropdown-open {
+    //   display: block;
+    // }
+  }
+
+  .dropdown-content a {
+    // vertical-align: middle;
+    color: $menu-grey;
+    display: block;
+    height: 38px;
+    max-height: 38px;
+    text-decoration: none;
+    // font-size: 1em;
+    // line-height: 38px;
+    // max-height: 38px;
+    width: 229px;
+    max-width: calc(229px - 22.1%);
+    text-overflow: ellipsis " [...]";
+    // overflow: hidden;
+    font-size: 0.9em;
+    &:visited {
+      color: $menu-grey;
+      text-decoration: none;
+      color: $menu-grey;
+    }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .menu-container {
+    visibility: hidden;
+    width: 100vw;
+
+    .fadeout {
+      display: none;
+    }
+    .menu {
+      visibility: visible;
+      width: 23vw;
+      position: fixed;
+      top: 0;
+      left: 0;
+      // wrote baaki menu styles neeche/underneath
+    }
+  }
+
+  .menu {
+    //  ^ for specificity
+    box-shadow: 0 4px 4px 0 rgba(60, 64, 67, 0.3),
+      0 8px 12px 6px rgba(60, 64, 67, 0.15);
+
+    .yellow-highlight,
+    .school-name-heading,
+    .divider {
+      display: none;
+    }
+
+    .logo {
+      display: block;
+      height: 10%;
+      width: auto;
+      position: absolute;
+      top: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-items-container {
+      .nav-item {
+        font-size: 1.2em;
+      }
+
+      #nios-logo {
+        height: 2rem;
+        margin-right: 0.3rem;
+        margin-left: 0.2rem;
+      }
+
+      .nav-icon {
+        height: 2rem;
+        width: 2rem;
+      }
+
+      .nav-item.not-dropdown .nav-icon {
+        margin-left: 2rem;
+      }
+    }
+  }
+}
